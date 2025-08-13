@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN & EARN - Transform Your Skills Into Income</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+       
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+       
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+       
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+       
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+       
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+       
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+       
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+       
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+       
+        .navbar-active {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-link.active {
+            color: #7c3aed !important;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #7c3aed, #3b82f6);
+            border-radius: 1px;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #667eea;
+        }
+
+        .earning-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .success-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .question-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .question-card.active {
+            border-left-color: #7c3aed;
+            background: #f8fafc;
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+
+        .option-button {
+            transition: all 0.2s ease;
+        }
+
+        .option-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .option-button.selected {
+            background: linear-gradient(135deg, #7c3aed, #3b82f6);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .academic { background: #fef3c7; color: #92400e; }
+        .skill { background: #dbeafe; color: #1e40af; }
+        .emotional { background: #fce7f3; color: #be185d; }
+        .intelligence { background: #f3e8ff; color: #7c2d12; }
+        .social { background: #d1fae5; color: #065f46; }
+        .professional { background: #fed7aa; color: #9a3412; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">L&E</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">LEARN & EARN</span>
+                </div>
+               
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition-colors">Home</a>
+                    <a href="#how-it-works" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition-colors">How It Works</a>
+                    <a href="#courses" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition-colors">Courses</a>
+                    <a href="#earnings" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition-colors">Earnings</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition-colors">Success Stories</a>
+                </div>
+               
+                <div class="flex items-center space-x-4">
+                    <button id="sign-in-btn" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">Sign In</button>
+                    <button class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105">
+                        Get Started
+                    </button>
+                </div>
+               
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl md:hidden z-40">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-xl font-bold text-gray-800">Menu</span>
+                    <button id="close-menu" class="text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="space-y-6">
+                    <a href="#home" class="block text-gray-700 hover:text-purple-600 font-medium text-lg">Home</a>
+                    <a href="#how-it-works" class="block text-gray-700 hover:text-purple-600 font-medium text-lg">How It Works</a>
+                    <a href="#courses" class="block text-gray-700 hover:text-purple-600 font-medium text-lg">Courses</a>
+                    <a href="#earnings" class="block text-gray-700 hover:text-purple-600 font-medium text-lg">Earnings</a>
+                    <a href="#testimonials" class="block text-gray-700 hover:text-purple-600 font-medium text-lg">Success Stories</a>
+                    <div class="pt-6 border-t">
+                        <button class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-medium">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h1 class="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        Transform Your
+                        <span class="text-yellow-300">Skills</span>
+                        Into
+                        <span class="text-yellow-300">Income</span>
+                    </h1>
+                    <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                        Join thousands of learners who are earning while they learn. Master in-demand skills and start generating income from day one.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <button id="start-learning-btn" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 pulse-animation">
+                            Start Learning & Earning
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all">
+                            Watch Demo
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="stats-counter text-white">50K+</div>
+                            <p class="text-white/80">Active Learners</p>
+                        </div>
+                        <div>
+                            <div class="stats-counter text-white">$2M+</div>
+                            <p class="text-white/80">Earned by Students</p>
+                        </div>
+                        <div>
+                            <div class="stats-counter text-white">95%</div>
+                            <p class="text-white/80">Success Rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
+                                    <span class="text-2xl">💡</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold">Learn Skills</h3>
+                                    <p class="text-white/70">Master in-demand skills</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-400 rounded-full flex items-center justify-center">
+                                    <span class="text-2xl">💰</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold">Earn Money</h3>
+                                    <p class="text-white/70">Start earning immediately</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center">
+                                    <span class="text-2xl">🚀</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold">Scale Up</h3>
+                                    <p class="text-white/70">Grow your income</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                    Our proven 3-step system helps you learn valuable skills and start earning money quickly
+                </p>
+                <button id="show-flowchart" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105">
+                    Document 2.0
+                </button>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center card-hover bg-gray-50 p-8 rounded-2xl cursor-pointer" onclick="window.open('https://student-salary-predictor.onrender.com/', '_blank')">
+                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">💰</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">1. Salary Prediction</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Predict your potential salary based on your skills, education, and experience level.
+                    </p>
+                    <div class="mt-4 text-orange-600 font-medium">Click to predict salary →</div>
+                </div>
+                <div class="text-center card-hover bg-gray-50 p-8 rounded-2xl cursor-pointer" onclick="createQuestionnaire()">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">📚</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">2. Choose Your Path</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Take our assessment to discover which courses match your skills and goals perfectly.
+                    </p>
+                    <div class="mt-4 text-purple-600 font-medium">Click to start assessment →</div>
+                </div>
+                <div class="text-center card-hover bg-gray-50 p-8 rounded-2xl cursor-pointer" onclick="showCourseSuggestion()">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">🎯</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">3. Get Course Suggestions</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Get personalized course recommendations based on your interests and career goals.
+                    </p>
+                    <div class="mt-4 text-blue-600 font-medium">Click for suggestions →</div>
+                </div>
+                <div class="text-center card-hover bg-gray-50 p-8 rounded-2xl cursor-pointer" onclick="window.open('https://lightcast.io/', '_blank')">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">💸</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">4. Start Earning</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Apply your skills to real projects, freelance opportunities, or start your own business with our support.
+                    </p>
+                    <div class="mt-4 text-green-600 font-medium">Click to explore opportunities →</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Popular Courses</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Choose from our most successful courses that have helped thousands earn their first income online
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="course-card text-white p-8 rounded-2xl card-hover">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4">Artificial Intelligence & Machine Learning</h3>
+                    <p class="mb-6 opacity-90">Master AI algorithms, neural networks, and build intelligent systems</p>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-2xl font-bold">$697</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">16 weeks</span>
+                    </div>
+                    <button class="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="earning-card text-white p-8 rounded-2xl card-hover">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-2xl font-bold mb-4">Data Science & Analytics</h3>
+                    <p class="mb-6 opacity-90">Analyze data, create insights, and drive business decisions with data</p>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-2xl font-bold">$597</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">14 weeks</span>
+                    </div>
+                    <button class="w-full bg-white text-pink-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="success-card text-white p-8 rounded-2xl card-hover">
+                    <div class="text-4xl mb-4">☁️</div>
+                    <h3 class="text-2xl font-bold mb-4">Cloud Computing & Cloud-Native</h3>
+                    <p class="mb-6 opacity-90">Build scalable applications using AWS, Azure, and modern cloud technologies</p>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-2xl font-bold">$547</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">12 weeks</span>
+                    </div>
+                    <button class="w-full bg-white text-green-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="course-card text-white p-8 rounded-2xl card-hover">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="text-2xl font-bold mb-4">Cybersecurity & Network Security</h3>
+                    <p class="mb-6 opacity-90">Protect systems, networks, and data from cyber threats and attacks</p>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-2xl font-bold">$497</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">10 weeks</span>
+                    </div>
+                    <button class="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="earning-card text-white p-8 rounded-2xl card-hover">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-2xl font-bold mb-4">Software Development</h3>
+                    <p class="mb-6 opacity-90">Build applications using modern programming languages and frameworks</p>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-2xl font-bold">$447</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">12 weeks</span>
+                    </div>
+                    <button class="w-full bg-white text-pink-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="success-card text-white p-8 rounded-2xl card-hover">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-bold mb-4">Product Management & UX/UI</h3>
+                    <p class="mb-6 opacity-90">Design user experiences and manage product development lifecycle</p>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-2xl font-bold">$397</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">10 weeks</span>
+                    </div>
+                    <button class="w-full bg-white text-green-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="course-card text-white p-8 rounded-2xl card-hover">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-2xl font-bold mb-4">Digital Marketing & Growth</h3>
+                    <p class="mb-6 opacity-90">Drive business growth through digital channels and marketing strategies</p>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-2xl font-bold">$347</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">8 weeks</span>
+                    </div>
+                    <button class="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="earning-card text-white p-8 rounded-2xl card-hover">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold mb-4">Analytical Thinking & Problem Solving</h3>
+                    <p class="mb-6 opacity-90">Develop critical thinking skills to solve complex business problems</p>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-2xl font-bold">$297</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">6 weeks</span>
+                    </div>
+                    <button class="w-full bg-white text-pink-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings Section -->
+    <section id="earnings" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Real Earnings, Real People</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    See how our students are transforming their lives with new income streams
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-2xl card-hover">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
+                        SM
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">Sarah M.</h4>
+                    <p class="text-gray-600 text-sm mb-3">Web Developer</p>
+                    <div class="text-3xl font-bold text-purple-600 mb-2">$4,200</div>
+                    <p class="text-gray-500 text-sm">First month earnings</p>
+                </div>
+                <div class="text-center bg-gradient-to-br from-pink-50 to-red-50 p-6 rounded-2xl card-hover">
+                    <div class="w-16 h-16 bg-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
+                        JD
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">John D.</h4>
+                    <p class="text-gray-600 text-sm mb-3">Digital Marketer</p>
+                    <div class="text-3xl font-bold text-pink-600 mb-2">$3,800</div>
+                    <p class="text-gray-500 text-sm">First month earnings</p>
+                </div>
+                <div class="text-center bg-gradient-to-br from-green-50 to-teal-50 p-6 rounded-2xl card-hover">
+                    <div class="w-16 h-16 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
+                        AL
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">Anna L.</h4>
+                    <p class="text-gray-600 text-sm mb-3">Content Writer</p>
+                    <div class="text-3xl font-bold text-green-600 mb-2">$2,500</div>
+                    <p class="text-gray-500 text-sm">First month earnings</p>
+                </div>
+                <div class="text-center bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl card-hover">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
+                        MR
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">Mike R.</h4>
+                    <p class="text-gray-600 text-sm mb-3">Freelancer</p>
+                    <div class="text-3xl font-bold text-blue-600 mb-2">$5,100</div>
+                    <p class="text-gray-500 text-sm">First month earnings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Hear from our students who have transformed their careers and financial situations
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            EM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Emma Thompson</h4>
+                            <p class="text-gray-600 text-sm">Former Teacher</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "I went from earning $35K as a teacher to making $80K+ as a freelance web developer. The course was incredibly practical and the support was amazing!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            DM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">David Martinez</h4>
+                            <p class="text-gray-600 text-sm">Former Retail Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "The digital marketing course changed my life. I now run my own agency and help local businesses grow online. Best investment I ever made!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            LW
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Lisa Wang</h4>
+                            <p class="text-gray-600 text-sm">Stay-at-home Mom</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "As a mom, I needed flexible income. Content writing gave me that freedom. I now earn $3K+ monthly working from home on my own schedule."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Life?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                Join thousands of successful students who are earning while they learn. Your new career starts today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105">
+                    Start Your Journey Today
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all">
+                    Talk to an Advisor
+                </button>
+            </div>
+            <p class="text-white/70 mt-6">
+                30-day money-back guarantee • No hidden fees • Lifetime access
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">L&E</span>
+                        </div>
+                        <span class="text-xl font-bold">LEARN & EARN</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Empowering people to transform their skills into sustainable income streams through practical education.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Courses</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Digital Marketing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Content Writing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Graphic Design</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Support</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Company</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Learn & Earn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Questionnaire data with 35+ questions across all categories
+        const questionnaireData = {
+            questions: [
+                // Academic Marks (5 questions)
+                {
+                    id: 1,
+                    category: "academic",
+                    categoryName: "📘 Academic Marks",
+                    question: "What was your overall academic performance in your highest completed education?",
+                    options: [
+                        { text: "Excellent (90%+ or A grade)", value: 5 },
+                        { text: "Very Good (80-89% or B grade)", value: 4 },
+                        { text: "Good (70-79% or C grade)", value: 3 },
+                        { text: "Average (60-69% or D grade)", value: 2 },
+                        { text: "Below Average (Below 60%)", value: 1 }
+                    ]
+                },
+                {
+                    id: 2,
+                    category: "academic",
+                    categoryName: "📘 Academic Marks",
+                    question: "How would you rate your performance in mathematics and analytical subjects?",
+                    options: [
+                        { text: "Always excelled, top of class", value: 5 },
+                        { text: "Above average, understood concepts well", value: 4 },
+                        { text: "Average, managed to pass comfortably", value: 3 },
+                        { text: "Below average, struggled with concepts", value: 2 },
+                        { text: "Poor, found it very difficult", value: 1 }
+                    ]
+                },
+                {
+                    id: 3,
+                    category: "academic",
+                    categoryName: "📘 Academic Marks",
+                    question: "How consistent were your academic results throughout your education?",
+                    options: [
+                        { text: "Very consistent, always performed well", value: 5 },
+                        { text: "Mostly consistent with occasional dips", value: 4 },
+                        { text: "Moderately consistent", value: 3 },
+                        { text: "Inconsistent, varied significantly", value: 2 },
+                        { text: "Very inconsistent performance", value: 1 }
+                    ]
+                },
+                {
+                    id: 4,
+                    category: "academic",
+                    categoryName: "📘 Academic Marks",
+                    question: "How well did you perform in language and communication subjects?",
+                    options: [
+                        { text: "Excellent, always top performer", value: 5 },
+                        { text: "Very good, above average", value: 4 },
+                        { text: "Good, average performance", value: 3 },
+                        { text: "Below average, struggled sometimes", value: 2 },
+                        { text: "Poor, found it very challenging", value: 1 }
+                    ]
+                },
+                {
+                    id: 5,
+                    category: "academic",
+                    categoryName: "📘 Academic Marks",
+                    question: "How would you describe your study habits and discipline during your education?",
+                    options: [
+                        { text: "Highly disciplined, regular study schedule", value: 5 },
+                        { text: "Good discipline, mostly regular", value: 4 },
+                        { text: "Moderate discipline, studied when needed", value: 3 },
+                        { text: "Poor discipline, irregular study patterns", value: 2 },
+                        { text: "Very poor, rarely studied regularly", value: 1 }
+                    ]
+                },
+
+                // Skill Quotient (6 questions)
+                {
+                    id: 6,
+                    category: "skill",
+                    categoryName: "📊 Skill Quotient (SQ)",
+                    question: "How quickly do you typically learn new technical skills?",
+                    options: [
+                        { text: "Very quickly, master basics in days", value: 5 },
+                        { text: "Quickly, learn efficiently with practice", value: 4 },
+                        { text: "At average pace, need some time", value: 3 },
+                        { text: "Slowly, need extra time and help", value: 2 },
+                        { text: "Very slowly, struggle with new skills", value: 1 }
+                    ]
+                },
+                {
+                    id: 7,
+                    category: "skill",
+                    categoryName: "📊 Skill Quotient (SQ)",
+                    question: "How comfortable are you with using computers and digital tools?",
+                    options: [
+                        { text: "Expert level, can troubleshoot and teach others", value: 5 },
+                        { text: "Advanced, comfortable with most tools", value: 4 },
+                        { text: "Intermediate, can handle basic tasks", value: 3 },
+                        { text: "Beginner, need help with complex tasks", value: 2 },
+                        { text: "Very basic, struggle with technology", value: 1 }
+                    ]
+                },
+                {
+                    id: 8,
+                    category: "skill",
+                    categoryName: "📊 Skill Quotient (SQ)",
+                    question: "How well do you adapt to new software or online platforms?",
+                    options: [
+                        { text: "Instantly, figure out features quickly", value: 5 },
+                        { text: "Fast, comfortable exploring new tools", value: 4 },
+                        { text: "Moderately, need some guidance initially", value: 3 },
+                        { text: "Slowly, prefer familiar tools", value: 2 },
+                        { text: "Very slowly, resist new platforms", value: 1 }
+                    ]
+                },
+                {
+                    id: 9,
+                    category: "skill",
+                    categoryName: "📊 Skill Quotient (SQ)",
+                    question: "What's your approach to solving technical problems?",
+                    options: [
+                        { text: "Research thoroughly, try multiple solutions", value: 5 },
+                        { text: "Look up solutions, experiment systematically", value: 4 },
+                        { text: "Try basic solutions, ask for help if stuck", value: 3 },
+                        { text: "Ask for help quickly, prefer guided solutions", value: 2 },
+                        { text: "Avoid technical problems, need constant help", value: 1 }
+                    ]
+                },
+                {
+                    id: 10,
+                    category: "skill",
+                    categoryName: "📊 Skill Quotient (SQ)",
+                    question: "How do you typically approach learning a new skill?",
+                    options: [
+                        { text: "Create structured plan, practice consistently", value: 5 },
+                        { text: "Follow tutorials, practice regularly", value: 4 },
+                        { text: "Learn as needed, moderate practice", value: 3 },
+                        { text: "Learn basics only, minimal practice", value: 2 },
+                        { text: "Avoid learning new skills, stick to familiar", value: 1 }
+                    ]
+                },
+                {
+                    id: 11,
+                    category: "skill",
+                    categoryName: "📊 Skill Quotient (SQ)",
+                    question: "How well do you retain and apply newly learned skills?",
+                    options: [
+                        { text: "Excellent retention, apply immediately", value: 5 },
+                        { text: "Good retention, apply with some practice", value: 4 },
+                        { text: "Average retention, need refreshers", value: 3 },
+                        { text: "Poor retention, forget without practice", value: 2 },
+                        { text: "Very poor, struggle to retain new skills", value: 1 }
+                    ]
+                },
+
+                // Emotional Quotient (6 questions)
+                {
+                    id: 12,
+                    category: "emotional",
+                    categoryName: "💖 Emotional Quotient (EQ)",
+                    question: "How well do you handle stress and pressure in challenging situations?",
+                    options: [
+                        { text: "Excellent, stay calm and focused", value: 5 },
+                        { text: "Good, manage stress effectively", value: 4 },
+                        { text: "Average, sometimes get overwhelmed", value: 3 },
+                        { text: "Poor, stress affects performance", value: 2 },
+                        { text: "Very poor, panic under pressure", value: 1 }
+                    ]
+                },
+                {
+                    id: 13,
+                    category: "emotional",
+                    categoryName: "💖 Emotional Quotient (EQ)",
+                    question: "How well do you understand and manage your own emotions?",
+                    options: [
+                        { text: "Very well, excellent self-awareness", value: 5 },
+                        { text: "Well, good emotional control", value: 4 },
+                        { text: "Moderately, sometimes struggle", value: 3 },
+                        { text: "Poorly, emotions often control me", value: 2 },
+                        { text: "Very poorly, no emotional control", value: 1 }
+                    ]
+                },
+                {
+                    id: 14,
+                    category: "emotional",
+                    categoryName: "💖 Emotional Quotient (EQ)",
+                    question: "How do you typically respond to criticism or feedback?",
+                    options: [
+                        { text: "Welcome it, use it for improvement", value: 5 },
+                        { text: "Accept it well, consider suggestions", value: 4 },
+                        { text: "Mixed reaction, depends on delivery", value: 3 },
+                        { text: "Defensive, take it personally", value: 2 },
+                        { text: "Very defensive, reject all criticism", value: 1 }
+                    ]
+                },
+                {
+                    id: 15,
+                    category: "emotional",
+                    categoryName: "💖 Emotional Quotient (EQ)",
+                    question: "How well do you motivate yourself to achieve goals?",
+                    options: [
+                        { text: "Excellent self-motivation, very driven", value: 5 },
+                        { text: "Good motivation, usually persistent", value: 4 },
+                        { text: "Moderate, need external encouragement", value: 3 },
+                        { text: "Poor, struggle with self-motivation", value: 2 },
+                        { text: "Very poor, need constant external push", value: 1 }
+                    ]
+                },
+                {
+                    id: 16,
+                    category: "emotional",
+                    categoryName: "💖 Emotional Quotient (EQ)",
+                    question: "How do you handle setbacks and failures?",
+                    options: [
+                        { text: "Learn from them, bounce back stronger", value: 5 },
+                        { text: "Recover well, use as learning experience", value: 4 },
+                        { text: "Take time to recover, eventually move on", value: 3 },
+                        { text: "Struggle to recover, affects confidence", value: 2 },
+                        { text: "Very hard to recover, give up easily", value: 1 }
+                    ]
+                },
+                {
+                    id: 17,
+                    category: "emotional",
+                    categoryName: "💖 Emotional Quotient (EQ)",
+                    question: "How well do you understand others' emotions and perspectives?",
+                    options: [
+                        { text: "Excellent, very empathetic", value: 5 },
+                        { text: "Good, understand most people well", value: 4 },
+                        { text: "Average, sometimes miss cues", value: 3 },
+                        { text: "Poor, struggle to read others", value: 2 },
+                        { text: "Very poor, don't understand others", value: 1 }
+                    ]
+                },
+
+                // Intelligence Quotient (6 questions)
+                {
+                    id: 18,
+                    category: "intelligence",
+                    categoryName: "🧠 Intelligence Quotient (IQ)",
+                    question: "How quickly do you grasp complex concepts and ideas?",
+                    options: [
+                        { text: "Very quickly, understand immediately", value: 5 },
+                        { text: "Quickly, need minimal explanation", value: 4 },
+                        { text: "Average pace, need some explanation", value: 3 },
+                        { text: "Slowly, need detailed explanation", value: 2 },
+                        { text: "Very slowly, struggle with complexity", value: 1 }
+                    ]
+                },
+                {
+                    id: 19,
+                    category: "intelligence",
+                    categoryName: "🧠 Intelligence Quotient (IQ)",
+                    question: "How well do you solve logical puzzles and problems?",
+                    options: [
+                        { text: "Excellent, love challenging puzzles", value: 5 },
+                        { text: "Good, solve most problems efficiently", value: 4 },
+                        { text: "Average, can solve with time", value: 3 },
+                        { text: "Poor, struggle with logical problems", value: 2 },
+                        { text: "Very poor, avoid complex problems", value: 1 }
+                    ]
+                },
+                {
+                    id: 20,
+                    category: "intelligence",
+                    categoryName: "🧠 Intelligence Quotient (IQ)",
+                    question: "How is your memory and ability to recall information?",
+                    options: [
+                        { text: "Excellent, remember details easily", value: 5 },
+                        { text: "Good, remember important information", value: 4 },
+                        { text: "Average, remember with some effort", value: 3 },
+                        { text: "Poor, struggle to remember details", value: 2 },
+                        { text: "Very poor, forget information quickly", value: 1 }
+                    ]
+                },
+                {
+                    id: 21,
+                    category: "intelligence",
+                    categoryName: "🧠 Intelligence Quotient (IQ)",
+                    question: "How well do you analyze and break down complex problems?",
+                    options: [
+                        { text: "Excellent, systematic problem solver", value: 5 },
+                        { text: "Good, can break down most problems", value: 4 },
+                        { text: "Average, need guidance sometimes", value: 3 },
+                        { text: "Poor, struggle with analysis", value: 2 },
+                        { text: "Very poor, avoid complex analysis", value: 1 }
+                    ]
+                },
+                {
+                    id: 22,
+                    category: "intelligence",
+                    categoryName: "🧠 Intelligence Quotient (IQ)",
+                    question: "How well do you connect ideas and see patterns?",
+                    options: [
+                        { text: "Excellent, see connections easily", value: 5 },
+                        { text: "Good, recognize most patterns", value: 4 },
+                        { text: "Average, see obvious patterns", value: 3 },
+                        { text: "Poor, miss many connections", value: 2 },
+                        { text: "Very poor, don't see patterns", value: 1 }
+                    ]
+                },
+                {
+                    id: 23,
+                    category: "intelligence",
+                    categoryName: "🧠 Intelligence Quotient (IQ)",
+                    question: "How is your ability to think creatively and generate new ideas?",
+                    options: [
+                        { text: "Excellent, very creative thinker", value: 5 },
+                        { text: "Good, come up with innovative solutions", value: 4 },
+                        { text: "Average, some creative moments", value: 3 },
+                        { text: "Poor, struggle with creativity", value: 2 },
+                        { text: "Very poor, prefer following instructions", value: 1 }
+                    ]
+                },
+
+                // Social Intelligence (6 questions)
+                {
+                    id: 24,
+                    category: "social",
+                    categoryName: "🌐 Social Intelligence (SI)",
+                    question: "How comfortable are you in social situations and meeting new people?",
+                    options: [
+                        { text: "Very comfortable, enjoy meeting people", value: 5 },
+                        { text: "Comfortable, adapt well to social settings", value: 4 },
+                        { text: "Moderately comfortable, depends on situation", value: 3 },
+                        { text: "Uncomfortable, prefer familiar people", value: 2 },
+                        { text: "Very uncomfortable, avoid social situations", value: 1 }
+                    ]
+                },
+                {
+                    id: 25,
+                    category: "social",
+                    categoryName: "🌐 Social Intelligence (SI)",
+                    question: "How well do you communicate your ideas to others?",
+                    options: [
+                        { text: "Excellent, clear and persuasive", value: 5 },
+                        { text: "Good, usually get message across", value: 4 },
+                        { text: "Average, sometimes unclear", value: 3 },
+                        { text: "Poor, struggle to explain ideas", value: 2 },
+                        { text: "Very poor, avoid explaining things", value: 1 }
+                    ]
+                },
+                {
+                    id: 26,
+                    category: "social",
+                    categoryName: "🌐 Social Intelligence (SI)",
+                    question: "How well do you work in team environments?",
+                    options: [
+                        { text: "Excellent team player, natural collaborator", value: 5 },
+                        { text: "Good, contribute well to teams", value: 4 },
+                        { text: "Average, can work in teams when needed", value: 3 },
+                        { text: "Poor, prefer working alone", value: 2 },
+                        { text: "Very poor, avoid team work", value: 1 }
+                    ]
+                },
+                {
+                    id: 27,
+                    category: "social",
+                    categoryName: "🌐 Social Intelligence (SI)",
+                    question: "How well do you handle conflicts and disagreements?",
+                    options: [
+                        { text: "Excellent, find win-win solutions", value: 5 },
+                        { text: "Good, resolve conflicts diplomatically", value: 4 },
+                        { text: "Average, manage basic conflicts", value: 3 },
+                        { text: "Poor, avoid or escalate conflicts", value: 2 },
+                        { text: "Very poor, can't handle disagreements", value: 1 }
+                    ]
+                },
+                {
+                    id: 28,
+                    category: "social",
+                    categoryName: "🌐 Social Intelligence (SI)",
+                    question: "How well do you build and maintain relationships?",
+                    options: [
+                        { text: "Excellent, strong lasting relationships", value: 5 },
+                        { text: "Good, maintain most relationships well", value: 4 },
+                        { text: "Average, some relationships fade", value: 3 },
+                        { text: "Poor, struggle to maintain connections", value: 2 },
+                        { text: "Very poor, relationships don't last", value: 1 }
+                    ]
+                },
+                {
+                    id: 29,
+                    category: "social",
+                    categoryName: "🌐 Social Intelligence (SI)",
+                    question: "How well do you read social cues and body language?",
+                    options: [
+                        { text: "Excellent, pick up subtle cues", value: 5 },
+                        { text: "Good, understand most social signals", value: 4 },
+                        { text: "Average, catch obvious cues", value: 3 },
+                        { text: "Poor, miss many social signals", value: 2 },
+                        { text: "Very poor, don't read social cues", value: 1 }
+                    ]
+                },
+
+                // Professional Intelligence (6 questions)
+                {
+                    id: 30,
+                    category: "professional",
+                    categoryName: "💼 Professional Intelligence (PI)",
+                    question: "How well do you manage your time and prioritize tasks?",
+                    options: [
+                        { text: "Excellent, very organized and efficient", value: 5 },
+                        { text: "Good, usually meet deadlines", value: 4 },
+                        { text: "Average, sometimes struggle with priorities", value: 3 },
+                        { text: "Poor, often miss deadlines", value: 2 },
+                        { text: "Very poor, no time management skills", value: 1 }
+                    ]
+                },
+                {
+                    id: 31,
+                    category: "professional",
+                    categoryName: "💼 Professional Intelligence (PI)",
+                    question: "How do you approach professional development and learning?",
+                    options: [
+                        { text: "Proactive, constantly seeking growth", value: 5 },
+                        { text: "Active, regularly update skills", value: 4 },
+                        { text: "Moderate, learn when required", value: 3 },
+                        { text: "Passive, minimal professional development", value: 2 },
+                        { text: "Inactive, avoid learning new things", value: 1 }
+                    ]
+                },
+                {
+                    id: 32,
+                    category: "professional",
+                    categoryName: "💼 Professional Intelligence (PI)",
+                    question: "How well do you handle professional responsibilities and commitments?",
+                    options: [
+                        { text: "Excellent, always reliable and accountable", value: 5 },
+                        { text: "Good, usually meet commitments", value: 4 },
+                        { text: "Average, sometimes fall short", value: 3 },
+                        { text: "Poor, struggle with responsibilities", value: 2 },
+                        { text: "Very poor, unreliable with commitments", value: 1 }
+                    ]
+                },
+                {
+                    id: 33,
+                    category: "professional",
+                    categoryName: "💼 Professional Intelligence (PI)",
+                    question: "How well do you adapt to workplace changes and new processes?",
+                    options: [
+                        { text: "Excellent, embrace change positively", value: 5 },
+                        { text: "Good, adapt well to most changes", value: 4 },
+                        { text: "Average, need time to adjust", value: 3 },
+                        { text: "Poor, resist change", value: 2 },
+                        { text: "Very poor, cannot handle change", value: 1 }
+                    ]
+                },
+                {
+                    id: 34,
+                    category: "professional",
+                    categoryName: "💼 Professional Intelligence (PI)",
+                    question: "How well do you communicate in professional settings?",
+                    options: [
+                        { text: "Excellent, clear and professional", value: 5 },
+                        { text: "Good, communicate effectively", value: 4 },
+                        { text: "Average, adequate communication", value: 3 },
+                        { text: "Poor, struggle with professional communication", value: 2 },
+                        { text: "Very poor, avoid professional communication", value: 1 }
+                    ]
+                },
+                {
+                    id: 35,
+                    category: "professional",
+                    categoryName: "💼 Professional Intelligence (PI)",
+                    question: "How do you approach problem-solving in work situations?",
+                    options: [
+                        { text: "Systematic, analytical approach", value: 5 },
+                        { text: "Structured, consider multiple solutions", value: 4 },
+                        { text: "Basic approach, try obvious solutions", value: 3 },
+                        { text: "Random approach, hope for the best", value: 2 },
+                        { text: "Avoid problems, wait for others to solve", value: 1 }
+                    ]
+                }
+            ]
+        };
+
+        // Questionnaire state
+        let currentQuestionIndex = 0;
+        let answers = {};
+        let questionnaireModal = null;
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-active');
+            } else {
+                navbar.classList.remove('navbar-active');
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Active navigation tracking
+        const navObserverOptions = {
+            threshold: 0.3,
+            rootMargin: '-80px 0px -50% 0px'
+        };
+
+        const navObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                const navLink = document.querySelector(`a[href="#${entry.target.id}"]`);
+                if (entry.isIntersecting) {
+                    // Remove active class from all nav links
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    // Add active class to current section's nav link
+                    if (navLink) {
+                        navLink.classList.add('active');
+                    }
+                }
+            });
+        }, navObserverOptions);
+
+        // Observe all sections for navigation
+        document.querySelectorAll('section[id]').forEach(section => {
+            navObserver.observe(section);
+        });
+
+        // Flowchart functionality
+        function showFlowchart() {
+            // Create a modal to let users choose which diagram to view
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-2xl mx-4 max-h-96 overflow-y-auto">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Choose a Diagram to View</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <button onclick="window.open('https://drive.google.com/file/d/1iqJqAfOiHob22MMAmkGwc4iw3GPN3bO7/view?usp=sharing', '_blank')" class="text-left p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="font-semibold text-purple-600 mb-2">📊 User Flow Diagram</div>
+                            <p class="text-sm text-gray-600">See how users navigate through the Learn & Earn platform</p>
+                        </button>
+                        <button onclick="window.open('https://drive.google.com/file/d/1ZBQ6EiUMVTYyHuctv3-VvJJ7x60jhkTs/view?usp=sharing', '_blank')" class="text-left p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="font-semibold text-blue-600 mb-2">🏗️ System Architecture</div>
+                            <p class="text-sm text-gray-600">Technical overview of the platform structure</p>
+                        </button>
+                        <button onclick="window.open('https://drive.google.com/file/d/1HcQgDktKCIYiI-hkH7m0OsBjrkg_taNx/view?usp=sharing', '_blank')" class="text-left p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="font-semibold text-green-600 mb-2">🔄 Data Flow Diagram</div>
+                            <p class="text-sm text-gray-600">How data moves through the system</p>
+                        </button>
+                        <button onclick="window.open('https://drive.google.com/file/d/1q2hP40liLJB1bdGl_LsIMSoTIJra_ApI/view?usp=sharing', '_blank')" class="text-left p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="font-semibold text-orange-600 mb-2">💰 CTC Prediction Flow</div>
+                            <p class="text-sm text-gray-600">How we predict earning potential</p>
+                        </button>
+                        <button onclick="window.open('https://drive.google.com/file/d/1gckna73BMCs4Ha42-HbjNYM-CcjXmjg7/view?usp=sharing', '_blank')" class="text-left p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="font-semibold text-red-600 mb-2">📈 Full CTC Prediction</div>
+                            <p class="text-sm text-gray-600">Complete earning prediction model</p>
+                        </button>
+                        <button onclick="window.open('https://drive.google.com/file/d/1HTO7ODiN5w5bq-AMkns9FfFKkp3H_UIC/view?usp=sharing', '_blank')" class="text-left p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <div class="font-semibold text-indigo-600 mb-2">🗃️ ER Model</div>
+                            <p class="text-sm text-gray-600">Database entity relationship model</p>
+                        </button>
+                    </div>
+                    <button onclick="this.closest('.fixed').remove()" class="w-full mt-6 bg-gray-600 text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors">
+                        Close
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Add event listener for the main flowchart button
+        document.getElementById('show-flowchart').addEventListener('click', showFlowchart);
+
+        // Sign In functionality
+        document.getElementById('sign-in-btn').addEventListener('click', function() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-3xl font-bold text-gray-900">Student Registration</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                    </div>
+                    
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Personal Information -->
+                            <div class="space-y-4">
+                                <h4 class="text-xl font-semibold text-purple-600 border-b pb-2">Personal Information</h4>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter your full name">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                    <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="your.email@example.com">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                    <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="+1 (555) 123-4567">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Date of Birth</label>
+                                    <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+                                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                        <option value="prefer-not-to-say">Prefer not to say</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">City/Location *</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your city">
+                                </div>
+                            </div>
+                            
+                            <!-- Educational & Career Information -->
+                            <div class="space-y-4">
+                                <h4 class="text-xl font-semibold text-blue-600 border-b pb-2">Educational & Career Information</h4>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Highest Qualification *</label>
+                                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Qualification</option>
+                                        <option value="high-school">High School</option>
+                                        <option value="diploma">Diploma</option>
+                                        <option value="bachelors">Bachelor's Degree</option>
+                                        <option value="masters">Master's Degree</option>
+                                        <option value="phd">PhD</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Field of Study</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="e.g., Computer Science, Business, Arts">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Current Employment Status *</label>
+                                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Status</option>
+                                        <option value="student">Student</option>
+                                        <option value="employed">Employed Full-time</option>
+                                        <option value="part-time">Employed Part-time</option>
+                                        <option value="freelancer">Freelancer</option>
+                                        <option value="unemployed">Unemployed</option>
+                                        <option value="homemaker">Homemaker</option>
+                                        <option value="retired">Retired</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Current Job Title/Role</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your current position">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Years of Work Experience</label>
+                                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Experience</option>
+                                        <option value="0">No Experience</option>
+                                        <option value="1-2">1-2 Years</option>
+                                        <option value="3-5">3-5 Years</option>
+                                        <option value="6-10">6-10 Years</option>
+                                        <option value="10+">10+ Years</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Career Goal/What You Want to Pursue *</label>
+                                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Your Goal</option>
+                                        <option value="web-development">Web Development</option>
+                                        <option value="digital-marketing">Digital Marketing</option>
+                                        <option value="content-writing">Content Writing</option>
+                                        <option value="graphic-design">Graphic Design</option>
+                                        <option value="data-science">Data Science</option>
+                                        <option value="mobile-development">Mobile App Development</option>
+                                        <option value="ui-ux-design">UI/UX Design</option>
+                                        <option value="social-media">Social Media Management</option>
+                                        <option value="e-commerce">E-commerce Business</option>
+                                        <option value="freelancing">General Freelancing</option>
+                                        <option value="entrepreneurship">Entrepreneurship</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Learning Preferences & Goals -->
+                        <div class="space-y-4 border-t pt-6">
+                            <h4 class="text-xl font-semibold text-green-600 border-b pb-2">Learning Preferences & Goals</h4>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Learning Schedule</label>
+                                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Schedule</option>
+                                        <option value="weekdays">Weekdays (Mon-Fri)</option>
+                                        <option value="weekends">Weekends Only</option>
+                                        <option value="evenings">Evenings After Work</option>
+                                        <option value="flexible">Flexible/Any Time</option>
+                                        <option value="intensive">Intensive (Full-time)</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Hours Available Per Week</label>
+                                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Hours</option>
+                                        <option value="1-5">1-5 Hours</option>
+                                        <option value="6-10">6-10 Hours</option>
+                                        <option value="11-20">11-20 Hours</option>
+                                        <option value="21-30">21-30 Hours</option>
+                                        <option value="30+">30+ Hours</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Income Goal</label>
+                                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Goal</option>
+                                        <option value="500-1000">$500 - $1,000</option>
+                                        <option value="1000-2500">$1,000 - $2,500</option>
+                                        <option value="2500-5000">$2,500 - $5,000</option>
+                                        <option value="5000-10000">$5,000 - $10,000</option>
+                                        <option value="10000+">$10,000+</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Previous Online Learning Experience</label>
+                                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                        <option value="">Select Experience</option>
+                                        <option value="none">No Experience</option>
+                                        <option value="beginner">Beginner (1-2 courses)</option>
+                                        <option value="intermediate">Intermediate (3-5 courses)</option>
+                                        <option value="experienced">Experienced (5+ courses)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">What motivates you to learn and earn online? *</label>
+                                <textarea required rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Tell us about your motivation, goals, and what you hope to achieve..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Any specific skills or tools you already know?</label>
+                                <textarea rows="2" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="e.g., Microsoft Office, Photoshop, Basic HTML, Social Media, etc."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">How did you hear about us?</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                    <option value="">Select Source</option>
+                                    <option value="google">Google Search</option>
+                                    <option value="social-media">Social Media</option>
+                                    <option value="friend">Friend/Family Referral</option>
+                                    <option value="youtube">YouTube</option>
+                                    <option value="blog">Blog/Article</option>
+                                    <option value="advertisement">Online Advertisement</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Terms and Submit -->
+                        <div class="border-t pt-6">
+                            <div class="flex items-start space-x-3 mb-6">
+                                <input type="checkbox" required class="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded">
+                                <label class="text-sm text-gray-700">
+                                    I agree to the <a href="#" class="text-purple-600 hover:underline">Terms of Service</a> and <a href="#" class="text-purple-600 hover:underline">Privacy Policy</a>. I consent to receiving course updates and promotional emails.
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3 mb-6">
+                                <input type="checkbox" class="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded">
+                                <label class="text-sm text-gray-700">
+                                    I would like to receive personalized course recommendations and career guidance via email and SMS.
+                                </label>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <button type="submit" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105">
+                                    Complete Registration
+                                </button>
+                                <button type="button" onclick="this.closest('.fixed').remove()" class="px-8 py-4 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        });
+
+        // Questionnaire Functions
+        function createQuestionnaire() {
+            questionnaireModal = document.createElement('div');
+            questionnaireModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            questionnaireModal.innerHTML = `
+                <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+                    <!-- Header -->
+                    <div class="p-6 border-b bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-2xl font-bold">Student Assessment Questionnaire</h2>
+                            <button onclick="closeQuestionnaire()" class="text-white hover:text-gray-200 text-2xl">&times;</button>
+                        </div>
+                        <p class="text-white/90 mb-4">Help us understand your strengths and recommend the best learning path for you</p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="bg-white/20 rounded-full h-3 mb-2">
+                            <div id="progress-bar" class="progress-bar bg-yellow-400 h-3 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm text-white/80">
+                            <span>Question <span id="current-q">1</span> of ${questionnaireData.questions.length}</span>
+                            <span id="progress-percent">0%</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Question Content -->
+                    <div class="flex-1 overflow-y-auto p-6">
+                        <div id="question-container">
+                            <!-- Question will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="p-6 border-t bg-gray-50 flex justify-between">
+                        <button id="prev-btn" onclick="previousQuestion()" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-100 transition-colors" disabled>
+                            Previous
+                        </button>
+                        <button id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all" disabled>
+                            Next Question
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(questionnaireModal);
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = questionnaireData.questions[currentQuestionIndex];
+            const container = document.getElementById('question-container');
+            
+            container.innerHTML = `
+                <div class="question-card p-6 rounded-xl border-2 border-gray-200">
+                    <div class="mb-4">
+                        <span class="category-badge ${question.category}">
+                            ${question.categoryName}
+                        </span>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6 leading-relaxed">
+                        ${question.question}
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        ${question.options.map((option, index) => `
+                            <button 
+                                class="option-button w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-purple-300 transition-all"
+                                onclick="selectOption(${question.id}, ${option.value}, this)"
+                                data-value="${option.value}"
+                            >
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-purple-600 rounded-full opacity-0 transition-opacity"></div>
+                                    </div>
+                                    <span class="font-medium">${option.text}</span>
+                                </div>
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Update progress
+            updateProgress();
+            
+            // Update navigation buttons
+            updateNavigationButtons();
+            
+            // Restore previous answer if exists
+            if (answers[question.id]) {
+                const selectedButton = container.querySelector(`[data-value="${answers[question.id]}"]`);
+                if (selectedButton) {
+                    selectOption(question.id, answers[question.id], selectedButton);
+                }
+            }
+        }
+
+        function selectOption(questionId, value, buttonElement) {
+            // Store answer
+            answers[questionId] = value;
+            
+            // Update UI
+            const container = buttonElement.closest('.question-card');
+            const allButtons = container.querySelectorAll('.option-button');
+            
+            // Reset all buttons
+            allButtons.forEach(btn => {
+                btn.classList.remove('selected');
+                btn.querySelector('.w-3').style.opacity = '0';
+            });
+            
+            // Select current button
+            buttonElement.classList.add('selected');
+            buttonElement.querySelector('.w-3').style.opacity = '1';
+            
+            // Enable next button
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / questionnaireData.questions.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('current-q').textContent = currentQuestionIndex + 1;
+            document.getElementById('progress-percent').textContent = Math.round(progress) + '%';
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            const currentQuestion = questionnaireData.questions[currentQuestionIndex];
+            const hasAnswer = answers[currentQuestion.id] !== undefined;
+            nextBtn.disabled = !hasAnswer;
+            
+            // Update next button text for last question
+            if (currentQuestionIndex === questionnaireData.questions.length - 1) {
+                nextBtn.textContent = 'Complete Assessment';
+                nextBtn.className = 'px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg font-medium hover:from-green-700 hover:to-green-800 transition-all';
+            } else {
+                nextBtn.textContent = 'Next Question';
+                nextBtn.className = 'px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all';
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questionnaireData.questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                // Complete questionnaire
+                completeQuestionnaire();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function completeQuestionnaire() {
+            // Calculate scores for each category
+            const scores = calculateScores();
+            showResults(scores);
+        }
+
+        function calculateScores() {
+            const categories = {
+                academic: { total: 0, count: 0, name: '📘 Academic Marks' },
+                skill: { total: 0, count: 0, name: '📊 Skill Quotient (SQ)' },
+                emotional: { total: 0, count: 0, name: '💖 Emotional Quotient (EQ)' },
+                intelligence: { total: 0, count: 0, name: '🧠 Intelligence Quotient (IQ)' },
+                social: { total: 0, count: 0, name: '🌐 Social Intelligence (SI)' },
+                professional: { total: 0, count: 0, name: '💼 Professional Intelligence (PI)' }
+            };
+
+            // Calculate totals for each category
+            questionnaireData.questions.forEach(question => {
+                if (answers[question.id]) {
+                    categories[question.category].total += answers[question.id];
+                    categories[question.category].count++;
+                }
+            });
+
+            // Calculate averages and percentages
+            const results = {};
+            Object.keys(categories).forEach(category => {
+                const cat = categories[category];
+                const average = cat.count > 0 ? cat.total / cat.count : 0;
+                const percentage = (average / 5) * 100; // Convert to percentage (5 is max score)
+                
+                results[category] = {
+                    name: cat.name,
+                    score: Math.round(average * 10) / 10, // Round to 1 decimal
+                    percentage: Math.round(percentage),
+                    level: getLevel(percentage)
+                };
+            });
+
+            return results;
+        }
+
+        function getLevel(percentage) {
+            if (percentage >= 90) return { text: 'Excellent', color: 'text-green-600', bg: 'bg-green-100' };
+            if (percentage >= 80) return { text: 'Very Good', color: 'text-blue-600', bg: 'bg-blue-100' };
+            if (percentage >= 70) return { text: 'Good', color: 'text-purple-600', bg: 'bg-purple-100' };
+            if (percentage >= 60) return { text: 'Average', color: 'text-yellow-600', bg: 'bg-yellow-100' };
+            return { text: 'Needs Improvement', color: 'text-red-600', bg: 'bg-red-100' };
+        }
+
+        function showResults(scores) {
+            const resultsHTML = `
+                <div class="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden flex flex-col">
+                    <!-- Header -->
+                    <div class="p-6 border-b bg-gradient-to-r from-green-600 to-blue-600 text-white">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-2xl font-bold">Your Assessment Results</h2>
+                            <button onclick="closeQuestionnaire()" class="text-white hover:text-gray-200 text-2xl">&times;</button>
+                        </div>
+                        <p class="text-white/90">Based on your responses, here's your comprehensive evaluation across all intelligence dimensions</p>
+                    </div>
+                    
+                    <!-- Results Content -->
+                    <div class="flex-1 overflow-y-auto p-6">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                            ${Object.entries(scores).map(([category, data]) => `
+                                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border-2 border-gray-200 hover:border-purple-300 transition-all">
+                                    <div class="text-center">
+                                        <h3 class="font-bold text-gray-900 mb-2">${data.name}</h3>
+                                        <div class="text-4xl font-bold ${data.level.color} mb-2">${data.percentage}%</div>
+                                        <div class="w-full bg-gray-200 rounded-full h-3 mb-3">
+                                            <div class="bg-gradient-to-r from-purple-600 to-blue-600 h-3 rounded-full transition-all duration-1000" style="width: ${data.percentage}%"></div>
+                                        </div>
+                                        <span class="inline-block px-3 py-1 rounded-full text-sm font-medium ${data.level.bg} ${data.level.color}">
+                                            ${data.level.text}
+                                        </span>
+                                        <p class="text-sm text-gray-600 mt-2">Score: ${data.score}/5.0</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <!-- Recommendations -->
+                        <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl border border-purple-200">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">🎯 Personalized Recommendations</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-purple-600 mb-3">Recommended Courses:</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        ${getRecommendedCourses(scores).map(course => `
+                                            <li class="flex items-center">
+                                                <span class="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                                                ${course}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-600 mb-3">Areas for Development:</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        ${getDevelopmentAreas(scores).map(area => `
+                                            <li class="flex items-center">
+                                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                                ${area}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Earning Potential -->
+                        <div class="mt-6 bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-xl border border-green-200">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">💰 Estimated Earning Potential</h3>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                ${getEarningPotential(scores).map(potential => `
+                                    <div class="text-center p-4 bg-white rounded-lg border">
+                                        <div class="text-2xl font-bold text-green-600">${potential.amount}</div>
+                                        <div class="text-sm text-gray-600">${potential.timeframe}</div>
+                                        <div class="text-xs text-gray-500 mt-1">${potential.field}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="p-6 border-t bg-gray-50 flex flex-col sm:flex-row gap-4">
+                        <button onclick="downloadResults()" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all">
+                            Download Detailed Report
+                        </button>
+                        <button onclick="startLearningJourney()" class="flex-1 bg-gradient-to-r from-green-600 to-teal-600 text-white py-3 rounded-lg font-semibold hover:from-green-700 hover:to-teal-700 transition-all">
+                            Start Your Learning Journey
+                        </button>
+                        <button onclick="closeQuestionnaire()" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            questionnaireModal.innerHTML = resultsHTML;
+        }
+
+        function getRecommendedCourses(scores) {
+            const courses = [];
+            
+            if (scores.skill.percentage >= 70) {
+                courses.push("Web Development - Build modern websites and applications");
+            }
+            if (scores.social.percentage >= 70) {
+                courses.push("Digital Marketing - Master social media and online advertising");
+            }
+            if (scores.emotional.percentage >= 70) {
+                courses.push("Content Writing - Create engaging content for businesses");
+            }
+            if (scores.intelligence.percentage >= 70) {
+                courses.push("Data Science - Analyze data and create insights");
+            }
+            if (scores.professional.percentage >= 70) {
+                courses.push("Project Management - Lead teams and deliver results");
+            }
+            
+            // Default recommendations if no high scores
+            if (courses.length === 0) {
+                courses.push("Digital Marketing - Great starting point for beginners");
+                courses.push("Content Writing - Develop communication skills");
+                courses.push("Basic Web Development - Learn fundamental tech skills");
+            }
+            
+            return courses.slice(0, 4); // Limit to 4 recommendations
+        }
+
+        function getDevelopmentAreas(scores) {
+            const areas = [];
+            
+            Object.entries(scores).forEach(([category, data]) => {
+                if (data.percentage < 70) {
+                    switch(category) {
+                        case 'academic':
+                            areas.push("Strengthen foundational knowledge and study habits");
+                            break;
+                        case 'skill':
+                            areas.push("Improve technical skills and digital literacy");
+                            break;
+                        case 'emotional':
+                            areas.push("Develop emotional intelligence and stress management");
+                            break;
+                        case 'intelligence':
+                            areas.push("Enhance problem-solving and analytical thinking");
+                            break;
+                        case 'social':
+                            areas.push("Build communication and interpersonal skills");
+                            break;
+                        case 'professional':
+                            areas.push("Develop workplace skills and professional habits");
+                            break;
+                    }
+                }
+            });
+            
+            return areas.slice(0, 4); // Limit to 4 areas
+        }
+
+        function getEarningPotential(scores) {
+            const avgScore = Object.values(scores).reduce((sum, score) => sum + score.percentage, 0) / Object.keys(scores).length;
+            
+            let potentials = [];
+            
+            if (avgScore >= 80) {
+                potentials = [
+                    { amount: "$3,000+", timeframe: "First Month", field: "Freelancing" },
+                    { amount: "$8,000+", timeframe: "After 3 Months", field: "Specialized Skills" },
+                    { amount: "$15,000+", timeframe: "After 6 Months", field: "Expert Level" }
+                ];
+            } else if (avgScore >= 70) {
+                potentials = [
+                    { amount: "$2,000+", timeframe: "First Month", field: "Basic Services" },
+                    { amount: "$5,000+", timeframe: "After 3 Months", field: "Intermediate Skills" },
+                    { amount: "$10,000+", timeframe: "After 6 Months", field: "Advanced Level" }
+                ];
+            } else {
+                potentials = [
+                    { amount: "$1,000+", timeframe: "First Month", field: "Entry Level" },
+                    { amount: "$3,000+", timeframe: "After 3 Months", field: "Developing Skills" },
+                    { amount: "$6,000+", timeframe: "After 6 Months", field: "Competent Level" }
+                ];
+            }
+            
+            return potentials;
+        }
+
+        function downloadResults() {
+            // Create a simple text report
+            const report = `
+LEARN & EARN - STUDENT ASSESSMENT RESULTS
+========================================
+
+Assessment Date: ${new Date().toLocaleDateString()}
+
+SCORES SUMMARY:
+${Object.entries(calculateScores()).map(([category, data]) => 
+    `${data.name}: ${data.percentage}% (${data.level.text})`
+).join('\n')}
+
+RECOMMENDATIONS:
+- ${getRecommendedCourses(calculateScores()).join('\n- ')}
+
+DEVELOPMENT AREAS:
+- ${getDevelopmentAreas(calculateScores()).join('\n- ')}
+
+EARNING POTENTIAL:
+${getEarningPotential(calculateScores()).map(p => 
+    `${p.timeframe}: ${p.amount} (${p.field})`
+).join('\n')}
+
+Thank you for taking the assessment!
+Visit our platform to start your learning journey.
+            `;
+            
+            const blob = new Blob([report], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'learn-earn-assessment-results.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function startLearningJourney() {
+            closeQuestionnaire();
+            // Show course selection modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-2xl mx-4">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">🚀 Start Your Learning Journey</h3>
+                    <p class="text-gray-600 mb-6">Based on your assessment, we recommend starting with these courses:</p>
+                    <div class="space-y-4 mb-6">
+                        ${getRecommendedCourses(calculateScores()).map(course => `
+                            <div class="p-4 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                <div class="font-semibold text-gray-900">${course}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all">
+                            Enroll Now
+                        </button>
+                        <button onclick="this.closest('.fixed').remove()" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                            Maybe Later
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function closeQuestionnaire() {
+            if (questionnaireModal) {
+                questionnaireModal.remove();
+                questionnaireModal = null;
+            }
+            // Reset questionnaire state
+            currentQuestionIndex = 0;
+            answers = {};
+        }
+
+        // Course Suggestion functionality
+        function showCourseSuggestion() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900">🎯 Get Personalized Course Suggestions</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6">
+                        Our AI-powered course recommendation system will analyze your preferences and suggest the perfect learning path for you.
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 mb-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-xl">🤖</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">AI Course Recommendation Engine</h4>
+                                <p class="text-sm text-gray-600">Powered by advanced machine learning algorithms</p>
+                            </div>
+                        </div>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                Analyzes your skills, interests, and career goals
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                Matches you with courses that have highest success rates
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                Provides earning potential estimates for each path
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                Updates recommendations based on market trends
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <button onclick="window.open('https://mpu66fqjughhbuajdehnbe.streamlit.app/', '_blank')" class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+                            🚀 Get My Course Suggestions
+                        </button>
+                        <button onclick="this.closest('.fixed').remove()" class="px-6 py-4 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                            Maybe Later
+                        </button>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-500">
+                            ⚡ Takes less than 2 minutes • 🎯 Personalized results • 💯 Free to use
+                        </p>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Start Learning & Earning button functionality
+        document.getElementById('start-learning-btn').addEventListener('click', function() {
+            createQuestionnaire();
+        });
+
+        // Button click handlers for other buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent.includes('Get Started') || this.textContent.includes('Enroll Now') || this.textContent.includes('Start Your Journey')) {
+                    // Create a custom modal for enrollment
+                    const modal = document.createElement('div');
+                    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                    modal.innerHTML = `
+                        <div class="bg-white rounded-2xl p-8 max-w-md mx-4">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h3>
+                            <p class="text-gray-600 mb-6">Join thousands of successful students and start your journey today!</p>
+                            <div class="space-y-4">
+                                <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                <button class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all">
+                                    Get Started Now
+                                </button>
+                                <button onclick="this.closest('.fixed').remove()" class="w-full text-gray-600 py-2 hover:text-gray-800 transition-colors">
+                                    Maybe Later
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                } else if (this.textContent.includes('Watch Demo')) {
+                    // Create demo modal
+                    const modal = document.createElement('div');
+                    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                    modal.innerHTML = `
+                        <div class="bg-white rounded-2xl p-8 max-w-lg mx-4">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Demo Video</h3>
+                            <div class="bg-gray-200 rounded-lg h-64 flex items-center justify-center mb-6">
+                                <div class="text-center">
+                                    <div class="text-6xl mb-4">🎥</div>
+                                    <p class="text-gray-600">Demo video would play here</p>
+                                </div>
+                            </div>
+                            <button onclick="this.closest('.fixed').remove()" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                                Close
+                            </button>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                } else if (this.textContent.includes('Talk to an Advisor')) {
+                    // Create advisor contact modal
+                    const modal = document.createElement('div');
+                    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                    modal.innerHTML = `
+                        <div class="bg-white rounded-2xl p-8 max-w-md mx-4">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Talk to an Advisor</h3>
+                            <p class="text-gray-600 mb-6">Get personalized guidance on which course is right for you.</p>
+                            <div class="space-y-4">
+                                <input type="text" placeholder="Your name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                <input type="email" placeholder="Your email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                    <option>Select your interest</option>
+                                    <option>Web Development</option>
+                                    <option>Digital Marketing</option>
+                                    <option>Content Writing</option>
+                                    <option>Not sure yet</option>
+                                </select>
+                                <button class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all">
+                                    Schedule Call
+                                </button>
+                                <button onclick="this.closest('.fixed').remove()" class="w-full text-gray-600 py-2 hover:text-gray-800 transition-colors">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d7e2d28605e8e0',t:'MTc1NDkxNjkxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
